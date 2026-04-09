@@ -137,7 +137,7 @@ const Navbar = () => {
         <button
           onClick={() => { closeMenu(); navigate("/login"); }}
           className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm px-6 py-2.5 rounded-full transition"
-        >
+        >                                             
           <LogIn size={15} />
           Login
         </button>
