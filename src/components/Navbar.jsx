@@ -13,11 +13,11 @@ import Swal from "sweetalert2";
 import logo from "../assets/logo/logo.png";
 
 const Navbar = () => {
-  const { user, logout, loading }    = useAuth();
-  const { totalItems, clearCart }    = useContext(CartContext); // ← use totalItems, not cart.length
-  const navigate                     = useNavigate();
+  const { user, logout, loading } = useAuth();
+  const { totalItems, clearCart } = useContext(CartContext); // ← use totalItems, not cart.length
+  const navigate = useNavigate();
 
-  const [menuOpen,   setMenuOpen]   = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // ── Scroll shadow effect
@@ -35,7 +35,7 @@ const Navbar = () => {
   }, []);
 
   const toggleMenu = useCallback(() => setMenuOpen((prev) => !prev), []);
-  const closeMenu  = useCallback(() => setMenuOpen(false), []);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   // ── Protected route: redirect to login if not logged in
   const handleProtectedRoute = useCallback(
@@ -44,8 +44,8 @@ const Navbar = () => {
       if (!user) {
         showAlert({
           title: "Login Required 🔐",
-          text:  "Please login to continue 😄",
-          icon:  "warning",
+          text: "Please login to continue 😄",
+          icon: "warning",
         }).then(() => navigate("/login"));
         return;
       }
@@ -58,13 +58,13 @@ const Navbar = () => {
   const handleLogout = useCallback(() => {
     closeMenu();
     Swal.fire({
-      title:              "Logout?",
-      text:               "Are you sure you want to logout?",
-      icon:               "question",
-      showCancelButton:   true,
+      title: "Logout?",
+      text: "Are you sure you want to logout?",
+      icon: "question",
+      showCancelButton: true,
       confirmButtonColor: "#f97316",
-      cancelButtonColor:  "#6b7280",
-      confirmButtonText:  "Yes, logout",
+      cancelButtonColor: "#6b7280",
+      confirmButtonText: "Yes, logout",
     }).then((res) => {
       if (res.isConfirmed) {
         logout();
@@ -131,23 +131,24 @@ const Navbar = () => {
           </button>
         </div>
       );
-    }   
+    }
     return (
-      <button
-        onClick={() => { closeMenu(); navigate("/login"); }}
-        className="flex items-center gap-2 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm px-4 py-2.5 rounded-xl transition"
-      >
-        <LogIn size={15} />
-        Login
-      </button>
+      <div className="flex justify-center">
+        <button
+          onClick={() => { closeMenu(); navigate("/login"); }}
+          className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm px-6 py-2.5 rounded-full transition"
+        >
+          <LogIn size={15} />
+          Login
+        </button>
+      </div>
     );
   }, [loading, user, handleLogout, navigate, closeMenu]);
 
   return (
     <nav
-      className={`sticky top-0 z-50 flex justify-between items-center px-6 md:px-12 py-3 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-white/70 backdrop-blur-lg"
-      }`}
+      className={`sticky top-0 z-50 flex justify-between items-center px-6 md:px-12 py-3 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-white/70 backdrop-blur-lg"
+        }`}
     >
       {/* ── LOGO */}
       <Link to="/" className="flex items-center gap-2" onClick={closeMenu}>
@@ -201,7 +202,7 @@ const Navbar = () => {
       <div className="md:hidden flex items-center gap-3">
         {/* Cart icon on mobile header */}
 
-        
+
         <button
           onClick={() => handleProtectedRoute("/cart")}
           className="relative p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
