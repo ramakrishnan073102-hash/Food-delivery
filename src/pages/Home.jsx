@@ -255,23 +255,7 @@ const Home = () => {
           </div>
 
           <div ref={scrollRef} className="flex overflow-x-auto gap-4 no-scrollbar pb-2">
-            {/* ALL pill */}
-            <div
-              onClick={() => handleCategoryClick("All")}
-              className="shrink-0 flex flex-col items-center cursor-pointer group"
-            >
-              <div
-                className={`w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-xl font-bold border-2 transition group-hover:scale-110
-                  ${selectedCategory === "All"
-                    ? "border-white bg-white text-white-500"
-                    : "border-white bg-white text-white-500"
-                  }`}
-              >
-                All
-              </div>
-              <p className="mt-1.5 text-xs text-center font-semibold"></p>
-            </div>
-
+          
             {scrollCategories.map((item, index) => (
               <div
                 key={index}
