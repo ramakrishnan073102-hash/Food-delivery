@@ -15,7 +15,7 @@ const StickyFooter = () => {
   const cartRef    = useRef(null);
   const profileRef = useRef(null);
 
-  const [active, setActive] = useState("home");
+  const [active, setActive] = useState("home");   
 
   const handleNavigation = (route, buttonName) => {
     setActive(buttonName);
