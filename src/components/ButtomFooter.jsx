@@ -25,38 +25,38 @@ import {
 
 // ─── Static Data  
 const QUICK_LINKS = [
-  { label: "Home",               to: "/"                },
-  { label: "Menu",               to: "/menu"            },
-  { label: "Cart",               to: "/cart"            },
-  { label: "Checkout",           to: "/checkout"        },
-  { label: "Terms & Conditions", to: "/terms"           },
+  { label: "Home", to: "/" },
+  { label: "Menu", to: "/menu" },
+  { label: "Cart", to: "/cart" },
+  { label: "Checkout", to: "/checkout" },
+  { label: "Terms & Conditions", to: "/terms" },
 ];
 
 const ACCOUNT_LINKS = [
-  { label: "Login",              to: "/login"           },
-  { label: "Sign Up",            to: "/signup"          },
-  { label: "Profile",            to: "/profile"         },
+  { label: "Login", to: "/login" },
+  { label: "Sign Up", to: "/signup" },
+  { label: "Profile", to: "/profile" },
   { label: "Delivery Addresses", to: "/deliveryaddress" },
 ];
 
 // ── Social links now use Ant Design icon components  
 const SOCIAL_LINKS = [
   { icon: InstagramOutlined, href: "https://www.instagram.com/?hl=en", label: "Instagram" },
-  { icon: XOutlined,         href: "https://x.com/",                   label: "X"         },
-  { icon: FacebookOutlined,  href: "https://www.facebook.com/",        label: "Facebook"  },
-  { icon: YoutubeOutlined,   href: "https://www.youtube.com/",         label: "Youtube"   },
+  { icon: XOutlined, href: "https://x.com/", label: "X" },
+  { icon: FacebookOutlined, href: "https://www.facebook.com/", label: "Facebook" },
+  { icon: YoutubeOutlined, href: "https://www.youtube.com/", label: "Youtube" },
 ];
 
 // ─── Footer Component  
 const Footer = () => {
-  const logoRef   = useRef(null);
+  const logoRef = useRef(null);
   const footerRef = useRef(null);
 
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [logoVisible, setLogoVisible]     = useState(true);
+  const [logoVisible, setLogoVisible] = useState(true);
   const [footerVisible, setFooterVisible] = useState(false);
-  const [email, setEmail]                 = useState("");
-  const [subscribed, setSubscribed]       = useState(false);
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
 
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
@@ -75,10 +75,10 @@ const Footer = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleScrollTop   = useCallback(() => window.scrollTo({ top: 0, behavior: "smooth" }), []);
-  const handleLogoError   = useCallback(() => setLogoVisible(false), []);
+  const handleScrollTop = useCallback(() => window.scrollTo({ top: 0, behavior: "smooth" }), []);
+  const handleLogoError = useCallback(() => setLogoVisible(false), []);
   const handleEmailChange = useCallback((e) => setEmail(e.target.value), []);
-  const handleSubscribe   = useCallback((e) => {
+  const handleSubscribe = useCallback((e) => {
     e.preventDefault();
     if (!email.trim()) return;
     setSubscribed(true);
@@ -91,8 +91,8 @@ const Footer = () => {
         ref={footerRef}
         className="bg-gray-900 text-gray-300"
         style={{
-          opacity:    footerVisible ? 1 : 0,
-          transform:  footerVisible ? "translateY(0)" : "translateY(24px)",
+          opacity: footerVisible ? 1 : 0,
+          transform: footerVisible ? "translateY(0)" : "translateY(24px)",
           transition: "opacity 0.6s ease, transform 0.6s ease",
         }}
       >
@@ -207,7 +207,10 @@ const Footer = () => {
               <ul className="space-y-3 text-sm text-gray-400">
                 <li className="flex items-start gap-3">
                   <MapPin size={16} className="text-orange-500 mt-0.5 shrink-0" />
-                  <span>123 Food Street, Koramangala, Bengaluru – 560034</span>
+                  <span>No.24 , Thudiyalur,
+                    Mettupalayam Road,
+                    Coimbatore North,
+                    Coimbatore{ }</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone size={16} className="text-orange-500 shrink-0" />
