@@ -16,7 +16,7 @@ const addressTypes = [
   { label: "Work",   icon: <Briefcase size={20} /> },
   { label: "Others", icon: <MapPin size={20} />    },
 ];
-
+   
 
 const DeliveryAddress = () => {
   const { user } = useAuth();

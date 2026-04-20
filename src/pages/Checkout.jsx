@@ -13,6 +13,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
+import logo from "../assets/logo/logo.png"
 import {
   MapPin, Phone, User, Home, Briefcase,
   CheckCircle, ChevronRight, ShieldCheck, Clock,
@@ -24,7 +25,7 @@ import {
   CreditCardOutlined,
 } from "@ant-design/icons";
 
-// ─── Razorpay ────────────────────────────────────────────────────────────────
+// ─── Razorpay 
 const RAZORPAY_KEY_ID = "rzp_test_SfeLlF57PYZ7bE";
 const loadRazorpay = () =>
   new Promise((resolve) => {
@@ -126,15 +127,15 @@ const showOrderSuccessPopup = (orderId, grandTotal, payMethod, customerName) => 
 
 const Checkout = () => {
   const navigate  = useNavigate();
-  const location  = useLocation();             // ← read promo from Cart navigate state
+  const location  = useLocation();             
   const { user }                        = useAuth();
   const { cart, totalPrice, clearCart } = useContext(CartContext);
 
-  // ── KEY FIX: read promo passed from Cart.jsx ─────────────────────────────
+  // ── KEY FIX: read promo passed from Cart.jsx 
   const promoCode     = location.state?.promoCode     || "";
   const promoDiscount = location.state?.promoDiscount || 0;
   const promoSaving   = location.state?.promoSaving   || 0;
-  // ─────────────────────────────────────────────────────────────────────────
+  // 
 
   const [savedSummary,   setSavedSummary]   = useState(null);
   const [savedAddresses, setSavedAddresses] = useState([]);
@@ -158,7 +159,7 @@ const Checkout = () => {
     loadRazorpay();
   }, [user]);
 
-  // ── Fees calculated from cart (without promo — promo applied separately)
+  
   const { cgst, sgst, deliveryFee, platformFee, baseGrandTotal } = useMemo(() => {
     if (cart.length === 0) return { cgst: 0, sgst: 0, deliveryFee: 0, platformFee: 0, baseGrandTotal: 0 };
     const cgst           = totalPrice * 0.025;
@@ -169,7 +170,7 @@ const Checkout = () => {
     return { cgst, sgst, deliveryFee, platformFee, baseGrandTotal };
   }, [cart, totalPrice]);
 
-  // ── Final grand total = base − promo saving from Cart
+
   const grandTotal = useMemo(
     () => Math.max(0, baseGrandTotal - promoSaving),
     [baseGrandTotal, promoSaving]
@@ -187,7 +188,7 @@ const Checkout = () => {
     };
     localStorage.setItem(ORDER_SUMMARY_KEY, JSON.stringify(summary));
     setSavedSummary(summary);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+ 
   }, [cart, totalPrice]);
 
   const summary = useMemo(() =>
@@ -209,7 +210,7 @@ const Checkout = () => {
     setFieldValue("pincode", addr.zipCode);
   }, []);
 
-  // ── Save order — includes promo details so invoice shows them
+
   const saveOrderToHistory = useCallback((values, razorpayData = null) => {
     const newOrder = {
       orderId:       generateOrderId(),
@@ -234,7 +235,7 @@ const Checkout = () => {
         price: i.price, quantity: i.quantity, lineTotal: i.price * i.quantity,
       })),
       totalItems,
-      // ── KEY FIX: promo stored in pricing so invoice can display it
+       
       pricing: {
         subtotal:      summary.totalPrice,
         cgst:          parseFloat(Number(summary.cgst).toFixed(2)),
@@ -264,7 +265,8 @@ const Checkout = () => {
       key:         RAZORPAY_KEY_ID,
       amount:      amountInPaise,
       currency:    "INR",
-      name:        "FoodApp",
+      logo:        "logo",
+      name:        "Hungryhub",
       description: `Order of ${totalItems} item${totalItems > 1 ? "s" : ""}`,
       prefill: {
         name:    values.name,
