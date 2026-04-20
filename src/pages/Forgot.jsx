@@ -307,7 +307,6 @@ const ForgotPassword = () => {
         )}
 
 
-        
         {/* ── STEP 2: OTP ── */}
         {step === 2 && (
           <Formik
