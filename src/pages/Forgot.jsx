@@ -27,7 +27,7 @@ const PasswordSchema = Yup.object().shape({
     .required("Please confirm your password"),
 });
 
-// ── 6-box OTP input 
+//  6-box OTP input 
 const OTPBoxes = ({ value, onChange }) => {
   const inputs = useRef([]);
   const digits = (value || "").split("").concat(Array(6).fill("")).slice(0, 6);
@@ -75,7 +75,7 @@ const OTPBoxes = ({ value, onChange }) => {
   );
 };
 
-// ── Countdown hook 
+//  Countdown hook 
 const useCountdown = (initial) => {
   const [seconds, setSeconds] = useState(initial);  
   const [running, setRunning] = useState(false);
@@ -92,7 +92,7 @@ const useCountdown = (initial) => {
   return { seconds, expired: seconds <= 0 && running === false ? false : seconds <= 0, start, reset };
 };
 
-// ── Main 
+//  Main 
 const ForgotPassword = () => {
   const navigate = useNavigate();
   const emailRef = useRef(null);

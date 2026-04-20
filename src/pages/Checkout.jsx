@@ -25,7 +25,7 @@ import {
   CreditCardOutlined,
 } from "@ant-design/icons";
 
-// ─── Razorpay 
+//  Razorpay 
 const RAZORPAY_KEY_ID = "rzp_test_SfeLlF57PYZ7bE";
 const loadRazorpay = () =>
   new Promise((resolve) => {
@@ -131,7 +131,7 @@ const Checkout = () => {
   const { user }                        = useAuth();
   const { cart, totalPrice, clearCart } = useContext(CartContext);
 
-  // ── KEY FIX: read promo passed from Cart.jsx 
+  //  KEY FIX: read promo passed from Cart.jsx 
   const promoCode     = location.state?.promoCode     || "";
   const promoDiscount = location.state?.promoDiscount || 0;
   const promoSaving   = location.state?.promoSaving   || 0;
