@@ -238,7 +238,7 @@ const DeliveryAddress = () => {
                           ? "border-orange-400 bg-orange-500/30 text-orange-300"
                           : "border-white/20 text-white/70 hover:border-orange-400 bg-white/5"
                         }`}
-                    >
+                    > 
                       {type.icon}
                       <span className="text-sm font-medium">{type.label}</span>
                     </div>

@@ -39,14 +39,14 @@ const ACCOUNT_LINKS = [
   { label: "Delivery Addresses", to: "/deliveryaddress" },
 ];
 
-// ── Social links now use Ant Design icon components  
+
 const SOCIAL_LINKS = [
   { icon: InstagramOutlined, href: "https://www.instagram.com/?hl=en", label: "Instagram" },
   { icon: XOutlined, href: "https://x.com/", label: "X" },
   { icon: FacebookOutlined, href: "https://www.facebook.com/", label: "Facebook" },
   { icon: YoutubeOutlined, href: "https://www.youtube.com/", label: "Youtube" },
 ];
-
+ 
 // ─── Footer Component  
 const Footer = () => {
   const logoRef = useRef(null);
