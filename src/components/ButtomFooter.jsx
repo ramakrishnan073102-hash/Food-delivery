@@ -84,7 +84,7 @@ const Footer = () => {
     setSubscribed(true);
     setEmail("");
   }, [email]);
-
+ 
   return (
     <>
       <footer
