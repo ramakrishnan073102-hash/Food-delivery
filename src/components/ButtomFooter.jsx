@@ -15,7 +15,7 @@ import {
   ArrowUp,
 } from "lucide-react";
 
-// ── Ant Design social icons 
+
 import {
   InstagramOutlined,
   XOutlined,
